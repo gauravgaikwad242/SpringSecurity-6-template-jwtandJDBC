@@ -37,8 +37,7 @@ public class BlogRestController {
 	
 	@PostMapping("/login")
 	public String login(@RequestBody LoginRequest loginRequest) {
-		
-		
+
 		return authService.login(loginRequest);
 	}
 

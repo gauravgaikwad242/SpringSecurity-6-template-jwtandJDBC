@@ -1,7 +1,7 @@
 package blog.com.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean; 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -16,49 +16,58 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.DefaultSecurityFilterChain;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import blog.com.security.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfiguration {
-	
-	@Autowired 
-	private UserDetailsService userDetailsService;
-	
-	 @Bean
-	public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
-	 
-		 return config.getAuthenticationManager();
-	    }//see brave browser stackoverflow favorite
-	
+
+    @Autowired
+    private UserDetailsService userDetailsService;
+
+    public JwtAuthenticationFilter jwtAuthenticationFilter() {
+        return new JwtAuthenticationFilter();
+    }
+
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+
+        return config.getAuthenticationManager();
+    }//see brave browser stackoverflow favorite
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
-            .authorizeHttpRequests((authz) -> authz
-                .requestMatchers("/api/auth/**").permitAll()
-                .anyRequest().authenticated()
-            ).authenticationProvider(authenticationProvider());
+                .authorizeHttpRequests((authz) -> authz
+                        .requestMatchers("/api/auth/**").permitAll()
+                        .anyRequest().authenticated()
+
+
+                ).authenticationProvider(authenticationProvider())
+        .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
-    
+
     @Bean
     PasswordEncoder passwordEncoder() {
-    
-    	return new BCryptPasswordEncoder();
-    }
-    
 
-    
+        return new BCryptPasswordEncoder();
+    }
+
+
+
     @Bean
     public AuthenticationProvider authenticationProvider() {
-    	DaoAuthenticationProvider  authenticationProvider = new DaoAuthenticationProvider();
-    	authenticationProvider.setUserDetailsService(userDetailsService);
-    	authenticationProvider.setPasswordEncoder(passwordEncoder());
-		return authenticationProvider;
-    
+        DaoAuthenticationProvider  authenticationProvider = new DaoAuthenticationProvider();
+        authenticationProvider.setUserDetailsService(userDetailsService);
+        authenticationProvider.setPasswordEncoder(passwordEncoder());
+        return authenticationProvider;
+
     }
-    
+
 
 }
