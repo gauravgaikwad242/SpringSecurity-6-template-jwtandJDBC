@@ -18,7 +18,7 @@ projects:
   - name: springsecurity-extensiondemodef
     git:
       checkoutFrom:
-        revision: extension-demo
+        revision: extension-demoDef
       remotes:
         origin: https://github.com/gauravgaikwad242/SpringSecurity-6-template-jwtandJDBC.git
 components:
