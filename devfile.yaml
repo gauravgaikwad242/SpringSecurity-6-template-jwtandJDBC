@@ -1,12 +1,12 @@
 schemaVersion: 2.1.0
 metadata:
-  name: SpringSecurity-6-template-extwithoutfile
+  name: SpringSecurity-6-template-postgre
   generateName: SpringSecurity-6-template-jwtandJDBC
 projects:
-  - name: springsecurity-extwithoutfile
+  - name: springsecurity-postgre
     git:
       checkoutFrom:
-        revision: ext-withoutfile
+        revision: postgre-mvn
       remotes:
         origin: https://github.com/gauravgaikwad242/SpringSecurity-6-template-jwtandJDBC.git
 attributes:  
