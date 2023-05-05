@@ -9,13 +9,14 @@ projects:
         revision: extension-demo
       remotes:
         origin: https://github.com/gauravgaikwad242/SpringSecurity-6-template-jwtandJDBC.git
-attributes:
+attributes:  
   controller.devfile.io/storage-type: ephemeral
-  .vscode/extensions.json: |
-    {
-      "recommendations": [
-        "vscjava.vscode-java-pack"
-      ]
+  .vscode/extensions.json: |  
+    {  
+      "recommendations": [  
+        "redhat.java",
+        "vscjava.vscode-java-pack"  
+      ]  
     }
 components:
   - name: tools
