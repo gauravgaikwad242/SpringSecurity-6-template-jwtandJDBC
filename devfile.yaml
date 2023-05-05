@@ -1,15 +1,26 @@
-schemaVersion: 2.1.0
+schemaVersion: 2.2.0
 metadata:
-  name: SpringSecurity-6-template-jwtandJDBC
+  name: SpringSecurity-6-template-extensiondemo1
   generateName: SpringSecurity-6-template-jwtandJDBC
-attributes:
-  controller.devfile.io/storage-type: ephemeral
-  .vscode/extensions.json: |
-  {
-    "recommendations": [
-      "vscjava.vscode-java-pack"
-    ]
-  }
+  components: 
+    - name: vscode-java-pack
+      type: chePlugin
+      version: <version>
+      registryUrl: docker.io
+      image: openjdk:latest
+      mountSources: true
+      commands:
+        - command: "code-server"
+          arguments:
+            - "--install-extension"
+            - "vscjava.vscode-java-pack"
+projects:
+  - name: springsecurity-extensiondemo1
+    git:
+      checkoutFrom:
+        revision: extension-demo
+      remotes:
+        origin: https://github.com/gauravgaikwad242/SpringSecurity-6-template-jwtandJDBC.git
 components:
   - name: tools
     container:
