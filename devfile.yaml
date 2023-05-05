@@ -1,9 +1,9 @@
 schemaVersion: 2.1.0
 metadata:
-  name: SpringSecurity-6-template-extensiondemo1
+  name: SpringSecurity-6-template-extwithoutfile
   generateName: SpringSecurity-6-template-jwtandJDBC
 projects:
-  - name: springsecurity-extensiondemo1
+  - name: springsecurity-extwithoutfile
     git:
       checkoutFrom:
         revision: ext-withoutfile
