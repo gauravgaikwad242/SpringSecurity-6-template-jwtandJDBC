@@ -1,10 +1,17 @@
 schemaVersion: 2.1.0
 metadata:
-  name: SpringSecurity-6-template-jwtandJDBC
+  name: SpringSecurity-6-template-extensiondemo1
   generateName: SpringSecurity-6-template-jwtandJDBC
+projects:
+  -name: springsecurity-extensiondemo1
+    git:
+      checkoutFrom:
+        revision: extension-demo
+      remotes:
+        origin: https://github.com/gauravgaikwad242/SpringSecurity-6-template-jwtandJDBC.git
 attributes:
   controller.devfile.io/storage-type: ephemeral
-  .vscode/extensions.json: |
+  .vscode/extensions.json:  |
   {
     "recommendations": [
       "vscjava.vscode-java-pack"
