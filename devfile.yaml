@@ -15,7 +15,7 @@ metadata:
             - "--install-extension"
             - "vscjava.vscode-java-pack"
 projects:
-  - name: springsecurity-extensiondemo1
+  - name: springsecurity-extensiondemodef
     git:
       checkoutFrom:
         revision: extension-demo
