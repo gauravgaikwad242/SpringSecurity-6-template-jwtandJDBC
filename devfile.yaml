@@ -6,7 +6,7 @@ projects:
   - name: springsecurity-extensiondemo1
     git:
       checkoutFrom:
-        revision: extension-demo
+        revision: ext-withoutfile
       remotes:
         origin: https://github.com/gauravgaikwad242/SpringSecurity-6-template-jwtandJDBC.git
 attributes:  
@@ -14,7 +14,7 @@ attributes:
   .vscode/extensions.json: |  
     {  
       "recommendations": [  
-        "redhat.java",
+        "redhat.java",  
         "vscjava.vscode-java-pack"  
       ]  
     }
