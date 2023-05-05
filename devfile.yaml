@@ -61,7 +61,7 @@ commands:
     exec:
       label: "Package"
       component: tools
-      workingDir: ${PROJECTS_ROOT}/SpringSecurity-6-template-jwtandJDBC
+      workingDir: ${PROJECTS_ROOT}/springsecurity-postgre
       commandLine: "mvn clean package -DskipTests=true"
       group:
         kind: build
@@ -70,7 +70,7 @@ commands:
     exec:
       label: "clean"
       component: tools
-      workingDir: ${PROJECTS_ROOT}/SpringSecurity-6-template-jwtandJDBC
+      workingDir: ${PROJECTS_ROOT}/springsecurity-postgre
       commandLine: "mvn clean -DskipTests=true"
       group:
         kind: build
