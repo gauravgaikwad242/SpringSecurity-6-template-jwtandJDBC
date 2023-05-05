@@ -4,6 +4,12 @@ metadata:
   generateName: SpringSecurity-6-template-jwtandJDBC
 attributes:
   controller.devfile.io/storage-type: ephemeral
+  .vscode/extensions.json: |
+  {
+    "recommendations": [
+      "vscjava.vscode-java-pack"
+    ]
+  }
 components:
   - name: tools
     container:
