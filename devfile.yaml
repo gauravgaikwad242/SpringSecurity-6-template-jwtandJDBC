@@ -11,7 +11,7 @@ projects:
         origin: https://github.com/gauravgaikwad242/SpringSecurity-6-template-jwtandJDBC.git
 attributes:
   controller.devfile.io/storage-type: ephemeral
-  .vscode/extensions.json: |
+  .vscode/extensions.json:  |
     {
       "recommendations": [
         "vscjava.vscode-java-pack"
