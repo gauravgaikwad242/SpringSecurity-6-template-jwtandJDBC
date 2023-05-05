@@ -1,11 +1,11 @@
 schemaVersion: 2.2.0
 metadata:
-  name: SpringSecurity-6-template-extensiondemo1
+  name: SpringSecurity-6-template-extensiondemodef
   generateName: SpringSecurity-6-template-jwtandJDBC
   components: 
     - name: vscode-java-pack
       type: chePlugin
-      version: <version>
+      version: 0.25.11
       registryUrl: docker.io
       image: openjdk:latest
       mountSources: true
