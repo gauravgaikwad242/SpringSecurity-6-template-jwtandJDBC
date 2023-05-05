@@ -73,7 +73,16 @@ commands:
       label: "Package"
       component: tools
       workingDir: ${PROJECTS_ROOT}/SpringSecurity-6-template-jwtandJDBC
-      commandLine: "./mvnw clean package -DskipTests=true"
+      commandLine: "mvn clean package -DskipTests=true"
+      group:
+        kind: build
+        isDefault: true
+  - id: clean
+    exec:
+      label: "clean"
+      component: tools
+      workingDir: ${PROJECTS_ROOT}/SpringSecurity-6-template-jwtandJDBC
+      commandLine: "mvn clean -DskipTests=true"
       group:
         kind: build
         isDefault: true
