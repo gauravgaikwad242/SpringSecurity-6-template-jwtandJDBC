@@ -1,12 +1,12 @@
 schemaVersion: 2.1.0
 metadata:
-  name: SpringSecurity-6-template-extensiondemo1
-  generateName: SpringSecurity-6-template-jwtandJDBC
+  name: springsecurity-ubi
+  generateName: springsecurity-ubi
 projects:
-  - name: springsecurity-extensiondemo1
+  - name: springsecurity-ubi
     git:
       checkoutFrom:
-        revision: extension-demo
+        revision: ubi-minimal
       remotes:
         origin: https://github.com/gauravgaikwad242/SpringSecurity-6-template-jwtandJDBC.git
 attributes:  
@@ -62,57 +62,57 @@ commands:
     exec:
       label: "Package"
       component: tools
-      workingDir: ${PROJECTS_ROOT}/SpringSecurity-6-template-jwtandJDBC
-      commandLine: "./mvnw clean package -DskipTests=true"
+      workingDir: ${PROJECTS_ROOT}/springsecurity-ubi
+      commandLine: "mvn clean package -DskipTests=true"
       group:
         kind: build
         isDefault: true
-  # - id: runtests
-  #   exec:
-  #     label: "Run tests"
-  #     component: tools
-  #     workingDir: ${PROJECTS_ROOT}/quarkus-api-example
-  #     commandLine: "./mvnw test"
-  #     group:
-  #       kind: test
-  # - id: packagenative
-  #   exec:
-  #     label: "Package Native"
-  #     component: tools
-  #     workingDir: ${PROJECTS_ROOT}/quarkus-api-example
-  #     commandLine: "./mvnw package -Dnative -Dmaven.test.skip -Dquarkus.native.native-image-xmx=3G"
-  #     group:
-  #       kind: build
-  # - id: startdev
-  #   exec:
-  #     label: "Start Development mode (Hot reload + debug)"
-  #     component: tools
-  #     workingDir: ${PROJECTS_ROOT}/quarkus-api-example
-  #     commandLine: "./mvnw compile quarkus:dev"
-  #     group:
-  #       kind: run
-  #       isDefault: true
+  - id: runtests
+    exec:
+      label: "Run tests"
+      component: tools
+      workingDir: ${PROJECTS_ROOT}/springsecurity-ubi
+      commandLine: "mvn test"
+      group:
+        kind: test
+  - id: packagenative
+    exec:
+      label: "Package Native"
+      component: tools
+      workingDir: ${PROJECTS_ROOT}/springsecurity-ubi
+      commandLine: "mvn package -Dnative -Dmaven.test.skip -Dquarkus.native.native-image-xmx=3G"
+      group:
+        kind: build
+  - id: startdev
+    exec:
+      label: "Start Development mode (Hot reload + debug)"
+      component: tools
+      workingDir: ${PROJECTS_ROOT}/springsecurity-ubi
+      commandLine: "mvn compile quarkus:dev"
+      group:
+        kind: run
+        isDefault: true
   # - id: startnative
   #   exec:
   #     label: "Start Native"
   #     component: ubi-minimal
-  #     workingDir: ${PROJECTS_ROOT}/quarkus-api-example/target
-  #     commandLine: "./quarkus-api-example-1.0.0-SNAPSHOT-runner"
+  #     workingDir: ${PROJECTS_ROOT}/springsecurity-ubi/target
+  #     commandLine: "./springsecurity-ubi-1.0.0-SNAPSHOT-runner"
   #     group:
   #       kind: run
   # - id: tag
   #   exec:
   #     label: "Tag Image"
   #     component: tools
-  #     workingDir: ${PROJECTS_ROOT}/quarkus-api-example
-  #     commandLine: "podman tag localhost/quarkus/getting-started-jvm:latest quay.io/ibuziuk/quarkus-api-example:demo"
+  #     workingDir: ${PROJECTS_ROOT}/springsecurity-ubi
+  #     commandLine: "podman tag localhost/quarkus/getting-started-jvm:latest quay.io/ibuziuk/springsecurity-ubi:demo"
   #     group:
   #       kind: test
   # - id: deploypostgres
   #   exec:
   #     label: "Deploy Postrgres"
   #     component: tools
-  #     workingDir: ${PROJECTS_ROOT}/quarkus-api-example
+  #     workingDir: ${PROJECTS_ROOT}/springsecurity-ubi
   #     commandLine: "oc new-app -e POSTGRESQL_USER=user -e POSTGRESQL_PASSWORD=password -e POSTGRESQL_DATABASE=food_db postgresql:10-el7 -n demo"
   #     group:
   #       kind: test
